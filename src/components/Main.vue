@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import CountryCard from '../components/CountryCard.vue'
-import { apolloClient } from '../apollo' 
+import { apolloClient } from '../apollo'
 import gql from 'graphql-tag'
 import { ref } from 'vue'
 import router from '../router/router'
@@ -47,10 +47,8 @@ onMounted(async () => {
 
 <template>
   <div class="main bg-[#F0E9E9] flex">
-    <div class="flex flex-wrap ">
-      <!-- render this div after the data has arrived -->
-
-      <div v-if="!isLoading" v-for="country in countries" :key="country.name" class="w-1/3">
+    <div class="flex flex-wrap">
+      <div v-if="!isLoading" v-for="country in countries" :key="country.name" class="w-1/3 flex justify-center">
         <CountryCard :name="country.name" :emoji="country.emoji" @click="clickedCountry = country.code; handleClick()" />
       </div>
     </div>
